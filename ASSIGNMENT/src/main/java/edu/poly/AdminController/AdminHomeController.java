@@ -41,53 +41,53 @@ public class AdminHomeController {
     SessionService session;
   @Autowired
     ParamService paramService;
-//    @RequestMapping("/Admin/Views")
-//    public String Home(Model model){
-//        //Hien thi don hang
-//     Order item = new Order();
-//     model.addAttribute("item", item);
-//     List<Order> items = orderdao.findAll();
-//     model.addAttribute("items", items);
-//
-//     //Thong ke User hien tai
-//     List<Account> accounts = accountdao.findAll();
-//     long count = 0;
-//     for (Account ac : accounts) {
-//            count++;
-//            model.addAttribute("count", count);
-//     }
-//     //Thong ke Doanh thu theo nam
-//        Float orderList = orderdao.selectTotals();
-//        model.addAttribute("orderList",orderList);
-//        //Thong ke Doanh thu theo thang
-//        Float selectTotalsMonth = orderdao.selectTotalsMonth();
-//        model.addAttribute("orderListMonth",selectTotalsMonth);
-//        //Thong ke ton kho
-//       // List<Report> rep = productDAO.getInventoryByCategory();
-//        model.addAttribute("rep", rep);
-//
-//        return "layoutChangeAdmin/bodyadmin";
-//    }
-//    @RequestMapping("/Admin/Order/Details/{id}")
-//    public String Details(Model model,@PathVariable("id") Long id){
-//        //Thong ke User hien tai
-//        List<Account> accounts = accountdao.findAll();
-//        long count = 0;
-//        for (Account ac : accounts) {
-//            count++;
-//            model.addAttribute("count", count);
-//        }
-//        //Thong ke Doanh thu theo nam
-//        Float orderList = orderdao.selectTotals();
-//        model.addAttribute("orderList",orderList);
-//        //Thong ke Doanh thu theo thang
-//        Float orderListMotnh = orderdao.selectTotals();
-//        model.addAttribute("orderListMotnh",orderList);
-//        List<OrderDetail> orderDetails = oderDetailDAO.findAllByOrder_Id(id);
-//        model.addAttribute("orderDetails",orderDetails);
-//        return "layoutChangeAdmin/viewsOrderDetails";
-//
-//    }
+    @RequestMapping("/Admin/Views")
+    public String Home(Model model){
+        //Hien thi don hang
+     Order item = new Order();
+     model.addAttribute("item", item);
+     List<Order> items = orderdao.findAll();
+     model.addAttribute("items", items);
+
+//     Thong ke User hien tai
+     List<Account> accounts = accountdao.findAll();
+     long count = 0;
+     for (Account ac : accounts) {
+            count++;
+            model.addAttribute("count", count);
+     }
+     //Thong ke Doanh thu theo nam
+        Float orderList = orderdao.selectTotals();
+        model.addAttribute("orderList",orderList);
+        //Thong ke Doanh thu theo thang
+        Float selectTotalsMonth = orderdao.selectTotalsMonth();
+        model.addAttribute("orderListMonth",selectTotalsMonth);
+        //Thong ke ton kho
+        List<Report> rep = productDAO.getInventoryByCategory();
+        model.addAttribute("rep", rep);
+
+        return "layoutChangeAdmin/bodyadmin";
+    }
+    @RequestMapping("/Admin/Order/Details/{id}")
+    public String Details(Model model,@PathVariable("id") Long id){
+        //Thong ke User hien tai
+        List<Account> accounts = accountdao.findAll();
+        long count = 0;
+        for (Account ac : accounts) {
+            count++;
+            model.addAttribute("count", count);
+        }
+        //Thong ke Doanh thu theo nam
+        Float orderList = orderdao.selectTotals();
+        model.addAttribute("orderList",orderList);
+        //Thong ke Doanh thu theo thang
+        Float orderListMotnh = orderdao.selectTotals();
+        model.addAttribute("orderListMotnh",orderList);
+        List<OrderDetail> orderDetails = oderDetailDAO.findAllByOrder_Id(id);
+        model.addAttribute("orderDetails",orderDetails);
+        return "layoutChangeAdmin/viewsOrderDetails";
+
+    }
     @RequestMapping("/Admin/Details/Confirmed/{id}")
     public String Confirmed(Model model,@PathVariable("id") Long id){
         List<Order> item = orderdao.findAllById(id);
